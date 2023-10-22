@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "377f8a05-9372-4486-a678-b2f6713cf453",
+		"name": "Passport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18772740",
+		"_collection_link": "https://martian-moon-75265.postman.co/workspace/Programaci%C3%B3n-Backend~62617885-c2f8-4667-8acd-b36ad24d63c4/collection/18772740-377f8a05-9372-4486-a678-b2f6713cf453?action=share&source=collection_link&creator=18772740"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_name\" : \"Natasha\", \r\n    \"last_name\": \"Ferere\",\r\n    \"username\": \"nferere\", \r\n    \"email\": \"nferere@gmail.com\",\r\n    \"age\": 50, \r\n    \"password\": \"natasha123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ecommerce/user/signup_passport",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ecommerce",
+						"user",
+						"signup_passport"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"liam@gmail.com\",\r\n    \"password\": \"liam125\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/ecommerce/user/login_passport",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ecommerce",
+						"user",
+						"login_passport"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
