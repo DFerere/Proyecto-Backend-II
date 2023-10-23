@@ -46,16 +46,6 @@ const initializePassport = () => {
                         return done(null, user);
                     }
 
-                    /*const user = await usersModel.create({
-                        first_name,
-                        last_name,
-                        email,
-                        age,
-                        password: bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
-                        rol
-                    });*/
-
-                    //return done(null, user);
                 }
                 catch (error) {
                     return done(error);
