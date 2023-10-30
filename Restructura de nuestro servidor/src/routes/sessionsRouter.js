@@ -2,10 +2,7 @@ import { Router } from 'express';
 
 const router = Router(); 
 
-/*router.get('/login2', async (req, res)  => { //entra a vista de login
 
-    res.render('login');
-});*/
 
 router.get('/login', async (req, res)  => { //entra a vista de login
 
