@@ -4,10 +4,7 @@ import ProductManager from '../controllers/ProductManager.js';
 
 const router = Router(); 
 
-//const pm = require("./ProductManager.js");
 
-//app.use(express.urlencoded({ extended: true }));
-//app.use(express.json());
 
 const productos = new ProductManager(); 
 
@@ -39,7 +36,7 @@ router.post('/', async (req, res)  => { //añade producto
 
     const prod = req.body; 
 
-    //console.log(prod.title); 
+ 
     
     await productos.addProduct2(prod.title, prod.description, prod.price, prod.thumbnail, prod.code, prod.stock, prod.status, prod.category);
 
