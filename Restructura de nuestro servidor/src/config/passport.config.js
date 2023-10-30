@@ -20,9 +20,6 @@ const initializePassport = () => {
                 const { first_name, last_name, email, age } = req.body;
                 try {
 
-                    //await users.registerbypassport(first_name, last_name, email, username, age, password);
-
-                    //const userExists = await usersModel.findOne({ email: username });
                     const userExists = await service.find(username); 
 
 
@@ -33,40 +30,16 @@ const initializePassport = () => {
                     if (email == process.env.ADMIN_EMAIL_1 || email == process.env.ADMIN_EMAIL_2) {
                         const rol = "admin";
                         const user = await service.create(first_name, last_name, email, age, password, rol); 
-                        /*const user = await usersModel.create({
-                            first_name,
-                            last_name,
-                            email,
-                            age,
-                            password: bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
-                            rol
-                        });*/
                         return done(null, user);
                     } else {
                         const rol = "user";
                         console.log(rol);
                         const user = await service.create(first_name, last_name, email, age, password, rol); 
-                       /* const user = await usersModel.create({
-                            first_name,
-                            last_name,
-                            email,
-                            age,
-                            password: bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
-                            rol
-                        });*/
+                    
                         return done(null, user);
                     }
 
-                    /*const user = await usersModel.create({
-                        first_name,
-                        last_name,
-                        email,
-                        age,
-                        password: bcrypt.hashSync(password, bcrypt.genSaltSync(10)),
-                        rol
-                    });*/
-
-                    //return done(null, user);
+                
                 }
                 catch (error) {
                     return done(error);
@@ -143,7 +116,6 @@ const initializePassport = () => {
             async (username, password, done) => {
                 try {
                     const user = await service.findOne(username); 
-                    //const user = await usersModel.findOne({ email: username }).lean();
                     if (!user) {
                         return done(null, false);
                     }
