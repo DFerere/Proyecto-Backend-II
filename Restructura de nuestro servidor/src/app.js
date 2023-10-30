@@ -39,8 +39,6 @@ console.log(port);
 
 const app = express();
 
-
-//const httpServer = app.listen(8080, () => console.log("Servidor corriendo!!"));
 const httpServer = app.listen(port, () => console.log("Servidor corriendo!!"));
 
 const socketServer = new Server(httpServer);
