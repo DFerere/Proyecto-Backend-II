@@ -17,22 +17,6 @@ router.post('/signup', async (req, res) => {
 
     await users.registeruser(username, email, password); 
 
-    /*const userExists = await usersModel.findOne({ email });
-
-    if (userExists) { //validamos si usuario ya existe en la BD
-        return res.send("El usuario ya existe");
-    }
-
-    if (email == process.env.ADMIN_EMAIL_1 || email == process.env.ADMIN_EMAIL_2) {
-        const rol = "admin";
-        const user = await usersModel.create({ username, email, password, rol });
-        console.log(username);
-    } else {
-        const rol = "user";
-        const user = await usersModel.create({ username, email, password, rol });
-        console.log(username);
-    }*/
-
 
 
     //guardamos info del usuario en session
@@ -67,9 +51,7 @@ router.post('/login_passport',
         req.session.age = req.user.age;
         req.session.rol = req.user.rol;
         req.session.isLogged = true;
-    
-    
-       // res.redirect('/mongo/products/catalog');
+
 
         res.redirect('/api/sessions/current');
     }
@@ -87,18 +69,12 @@ router.post('/login', async (req, res) => {
         return res.send("Credenciales INVALIDAS");
     }
 
-    //const user = await usersModel.create({ username, email, password });
-    //console.log(username); 
     //guardamos info del usuario en session
     req.session.username = username;
     req.session.email = user.email;
     req.session.isLogged = true;
 
-    //res.send("Bienvenido");
-
     res.redirect('/mongo/products/catalog');
-
-    //res.redirect('/ecommerce/home/profile');
 
 
 
@@ -123,32 +99,5 @@ router.get(
         //res.redirect('/ecommerce/home/profile');
         res.redirect('/mongo/products/catalog'); 
     }); 
-
-
-/*router.get('/profile', async (req, res) => {
-
-    const { username, email} = req.session;
-    console.log(username);
-
-    //const userExists = await usersModel.findOne({ email });
-
-    /*if (userExists) { //validamos si usuario ya existe en la BD
-        return res.send("El usuario ya existe");
-    }*/
-
-//const user = await usersModel.create({ username, email, password });
-//console.log(username); 
-//guardamos info del usuario en session
-/*req.session.username = username;
-req.session.email = email;
-req.session.isLogged = true;*/
-
-//res.send("Bienvenido");
-
-/*res.render('/profile', { username, email});
-
-
-
-});*/
 
 export default router;
